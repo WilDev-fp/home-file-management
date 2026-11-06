@@ -1,0 +1,137 @@
+<div class="dashboard-shell">
+  <aside class="sidebar">
+    <a class="brand" routerLink="/dashboard" aria-label="HomeFile, dashboard">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3.5 7.5h6l2 2h9v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-11Z" />
+          <path d="M3.5 7.5v-2a2 2 0 0 1 2-2h4l2 2h5" />
+        </svg>
+      </span>
+      <span>homefile</span>
+    </a>
+
+    <button class="new-folder" type="button" aria-label="Crea una nuova cartella">
+      <span>+</span> Nuova cartella
+    </button>
+
+    <p class="nav-label">SPAZIO DI LAVORO</p>
+    <nav class="main-nav" aria-label="Navigazione principale">
+      <button type="button" [class.active]="activeSection === 'Tutti i file'" (click)="activeSection = 'Tutti i file'">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5h6v6H4zM14 5.5h6v6h-6zM4 15.5h6v5H4zM14 15.5h6v5h-6z" /></svg>
+        Tutti i file <span class="nav-count">24</span>
+      </button>
+      <button type="button" [class.active]="activeSection === 'Documenti'" (click)="activeSection = 'Documenti'">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v5h5m-9 4h5m-5 4h5" /></svg>
+        Documenti
+      </button>
+      <button type="button" [class.active]="activeSection === 'Immagini'" (click)="activeSection = 'Immagini'">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2" /><circle cx="9" cy="10" r="1.5" /><path d="m4.5 17 5-5 3.5 3 2.5-2 4 4" /></svg>
+        Immagini
+      </button>
+      <button type="button" [class.active]="activeSection === 'Lavoro'" (click)="activeSection = 'Lavoro'">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="7.5" width="17" height="13" rx="2" /><path d="M8.5 7.5v-2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2m-12 5h17m-10 0v2h3v-2" /></svg>
+        Lavoro
+      </button>
+      <button type="button" [class.active]="activeSection === 'Personali'" (click)="activeSection = 'Personali'">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.5 8.5c0 5.2-7.5 10-7.5 10s-7.5-4.8-7.5-10a4 4 0 0 1 7.5-2 4 4 0 0 1 7.5 2Z" /></svg>
+        Personali
+      </button>
+    </nav>
+
+    <div class="storage-card">
+      <div class="storage-heading"><span>Spazio utilizzato</span><span>68%</span></div>
+      <div class="storage-track"><span></span></div>
+      <p>6,8 GB di 10 GB utilizzati</p>
+      <button type="button">Gestisci spazio <span>→</span></button>
+    </div>
+
+    <div class="sidebar-bottom">
+      <button type="button">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.6 2.8-.2-.1a1.7 1.7 0 0 0-1.8.2l-.2.1h-3.2l-.1-.2a1.7 1.7 0 0 0-1.6-1l-.2.1-2.8-1.6.1-.2a1.7 1.7 0 0 0-.2-1.8l-.1-.2v-3.2l.2-.1a1.7 1.7 0 0 0 1-1.6l-.1-.2 1.6-2.8.2.1a1.7 1.7 0 0 0 1.8-.2l.2-.1h3.2l.1.2a1.7 1.7 0 0 0 1.6 1l.2-.1 2.8 1.6-.1.2a1.7 1.7 0 0 0 .2 1.8l.1.2v3.2l-.2.1a1.7 1.7 0 0 0-1.2 1.6Z" /></svg>
+        Impostazioni
+      </button>
+      <a class="user-profile" routerLink="/login">
+        <span class="user-avatar">GM</span>
+        <span class="user-info"><strong>Giulia Moretti</strong><small>Account personale</small></span>
+        <span class="profile-menu" aria-hidden="true">···</span>
+      </a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div class="breadcrumb"><span>Il mio spazio</span><span class="breadcrumb-separator">/</span><strong>Panoramica</strong></div>
+      <div class="topbar-actions">
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 4 4" /></svg>
+          <input type="search" placeholder="Cerca file..." aria-label="Cerca file" [(ngModel)]="searchTerm" />
+          <kbd>⌘ K</kbd>
+        </label>
+        <button class="icon-button notification-button" type="button" aria-label="Notifiche">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4" /></svg>
+          <span></span>
+        </button>
+        <button class="top-avatar" type="button" aria-label="Esci" routerLink="/login">GM</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="welcome-row">
+        <div>
+          <p class="date-label">{{ today }}</p>
+          <h1>Buongiorno, Giulia <span>✳</span></h1>
+          <p class="welcome-subtitle">Ecco cosa succede nel tuo spazio oggi.</p>
+        </div>
+        <button class="upload-button" type="button">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4" /></svg>
+          Carica file
+        </button>
+      </section>
+
+      <section class="stats-grid" aria-label="Riepilogo spazio">
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-icon files-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3.5h8l4 4v13H6zM14 3.5v5h5" /></svg></span><span class="trend">↗ 12%</span></div>
+          <p>File totali</p><div class="stat-value">248 <small>file</small></div><div class="stat-note">+18 nell’ultimo mese</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-icon folders-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 7.5h6l2 2h9v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-11Z" /><path d="M3.5 7.5v-2a2 2 0 0 1 2-2h4l2 2h5" /></svg></span><span class="trend">↗ 2</span></div>
+          <p>Cartelle</p><div class="stat-value">12 <small>cartelle</small></div><div class="stat-note">2 create questa settimana</div>
+        </article>
+        <article class="stat-card storage-stat">
+          <div class="stat-top"><span class="stat-icon storage-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7.5h16l1 12H3l1-12Zm2 0 2-4h8l2 4m-6 4v4m-2-2h4" /></svg></span><span class="storage-percent">68%</span></div>
+          <p>Spazio utilizzato</p><div class="stat-value">6,8 <small>GB di 10 GB</small></div><div class="mini-track"><span></span></div>
+        </article>
+      </section>
+
+      <section class="recent-section">
+        <div class="section-heading">
+          <div><h2>File recenti</h2><p>I tuoi file aggiornati di recente, tutti in un unico posto.</p></div>
+          <button type="button" class="view-all" (click)="activeSection = 'Tutti i file'">Vedi tutti <span>→</span></button>
+        </div>
+
+        <div class="file-table">
+          <div class="table-head"><span>Nome</span><span>Ultima modifica</span><span>Dimensione</span><span></span></div>
+          @for (file of filteredFiles; track file.name) {
+            <div class="file-row">
+              <span class="file-name"><span class="file-type" [class]="file.color">{{ file.initials }}</span><span><strong>{{ file.name }}</strong><small>{{ file.category }}</small></span></span>
+              <span class="file-updated">{{ file.updated }}</span>
+              <span class="file-size">{{ file.size }}</span>
+              <button class="more-button" type="button" [attr.aria-label]="'Altre opzioni per ' + file.name">···</button>
+            </div>
+          } @empty {
+            <div class="empty-state">Nessun file trovato in questa sezione.</div>
+          }
+        </div>
+      </section>
+
+      <section class="quick-access">
+        <div class="section-heading"><div><h2>Accesso rapido</h2><p>Le tue cartelle preferite.</p></div><button type="button" class="view-all">Modifica <span>→</span></button></div>
+        <div class="folder-grid">
+          <button type="button" class="folder-card" (click)="activeSection = 'Documenti'"><span class="folder-symbol folder-yellow">▰</span><span><strong>Documenti</strong><small>34 file · 1,2 GB</small></span><span class="folder-more">···</span></button>
+          <button type="button" class="folder-card" (click)="activeSection = 'Immagini'"><span class="folder-symbol folder-pink">▰</span><span><strong>Immagini</strong><small>86 file · 3,4 GB</small></span><span class="folder-more">···</span></button>
+          <button type="button" class="folder-card" (click)="activeSection = 'Lavoro'"><span class="folder-symbol folder-blue">▰</span><span><strong>Lavoro</strong><small>18 file · 840 MB</small></span><span class="folder-more">···</span></button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

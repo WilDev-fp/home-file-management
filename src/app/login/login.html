@@ -1,0 +1,101 @@
+<main class="login-page">
+  <section class="login-intro" aria-label="HomeFile">
+    <a class="brand" routerLink="/login" aria-label="HomeFile, pagina iniziale">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3.5 7.5h6l2 2h9v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-11Z" />
+          <path d="M3.5 7.5v-2a2 2 0 0 1 2-2h4l2 2h5" />
+        </svg>
+      </span>
+      <span>homefile</span>
+    </a>
+
+    <div class="intro-copy">
+      <span class="eyebrow"><span></span> TUTTO AL SUO POSTO</span>
+      <h1>I tuoi file,<br />finalmente <em>a casa.</em></h1>
+      <p>Uno spazio semplice e sicuro per organizzare i tuoi documenti e ritrovare tutto quello che conta.</p>
+    </div>
+
+    <div class="intro-footer">
+      <div class="avatar-stack" aria-hidden="true">
+        <span>G</span><span>M</span><span>L</span><span>+</span>
+      </div>
+      <p>Organizzazione semplice,<br /><strong>ogni giorno.</strong></p>
+      <span class="footer-mark" aria-hidden="true">✳</span>
+    </div>
+    <div class="decor decor-one" aria-hidden="true"></div>
+    <div class="decor decor-two" aria-hidden="true"></div>
+  </section>
+
+  <section class="login-panel">
+    <div class="mobile-brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3.5 7.5h6l2 2h9v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-11Z" />
+          <path d="M3.5 7.5v-2a2 2 0 0 1 2-2h4l2 2h5" />
+        </svg>
+      </span>
+      <span>homefile</span>
+    </div>
+
+    <div class="login-card">
+      <div class="welcome">
+        <span class="welcome-icon" aria-hidden="true">✳</span>
+        <p class="eyebrow">BENTORNATO</p>
+        <h2>Accedi al tuo spazio</h2>
+        <p class="subtitle">Inserisci i tuoi dati per continuare.</p>
+      </div>
+
+      <form (ngSubmit)="enterDashboard()">
+        <label for="email">Indirizzo email</label>
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3.5" y="5" width="17" height="14" rx="2.5" />
+            <path d="m4.5 7 7.5 5.5L19.5 7" />
+          </svg>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="nome@esempio.it"
+            autocomplete="email"
+            [(ngModel)]="email"
+            required
+          />
+        </div>
+
+        <div class="password-label">
+          <label for="password">Password</label>
+          <a href="mailto:supporto@homefile.it?subject=Recupero%20password">Password dimenticata?</a>
+        </div>
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4.5" y="10" width="15" height="11" rx="2.5" />
+            <path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3" />
+          </svg>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Inserisci la tua password"
+            autocomplete="current-password"
+            [(ngModel)]="password"
+            required
+          />
+        </div>
+
+        <label class="remember">
+          <input type="checkbox" name="remember" />
+          <span>Ricordami su questo dispositivo</span>
+        </label>
+
+        <button class="submit-button" type="submit">
+          Accedi <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <p class="signup">Non hai ancora un account? <a href="mailto:supporto@homefile.it?subject=Crea%20un%20account">Contattaci</a></p>
+    </div>
+    <p class="legal">© 2026 HomeFile <span>·</span> I tuoi documenti, al sicuro.</p>
+  </section>
+</main>
