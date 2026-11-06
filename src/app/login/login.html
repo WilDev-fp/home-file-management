@@ -46,7 +46,7 @@
         <p class="subtitle">Inserisci i tuoi dati per continuare.</p>
       </div>
 
-      <form (ngSubmit)="enterDashboard()">
+      <form (ngSubmit)="enterDashboard()" novalidate>
         <label for="email">Indirizzo email</label>
         <div class="input-wrap">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -85,9 +85,16 @@
         </div>
 
         <label class="remember">
-          <input type="checkbox" name="remember" />
+          <input
+            type="checkbox"
+            name="remember"
+            [(ngModel)]="rememberMe"
+            (ngModelChange)="onRememberMeChange($event)"
+          />
           <span>Ricordami su questo dispositivo</span>
         </label>
+
+        <p class="login-error" role="alert" [hidden]="!errorMessage">{{ errorMessage }}</p>
 
         <button class="submit-button" type="submit">
           Accedi <span aria-hidden="true">→</span>
