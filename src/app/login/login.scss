@@ -329,6 +329,12 @@ form label,
   accent-color: #426d4e;
 }
 
+.login-error {
+  margin: -10px 0 15px;
+  color: #b42318;
+  font-size: 12px;
+}
+
 .submit-button {
   display: flex;
   align-items: center;
